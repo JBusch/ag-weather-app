@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="taxiApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="taxiApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="taxiApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="taxiApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Taxi App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Home</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="#/view1">Über uns</a></li>
+      <li><a href="#/taxiBestellen">Taxi bestellen</a></li>
+      <li><a href="#/impressum">Impressum</a></li>
+    </ul>
+    </ul>
+  </section>
+</nav>
+  
+
+  <div ng-controller="AppController" >
+  <h2 class="text-center">Wetter für {{dataSet.city._name}}</h2>
+  <ul class="pricing-table">
+    <li class="bullet-item">Aktuelle Temperatur: {{ dataSet.temperature._value -272.15 | number : 2 }}°C</li>
+    <li class="bullet-item">Aktueller Maximalwert: {{ dataSet.temperature._max -272.15 | number : 2 }}</li>
+    <li class="bullet-item">Aktueller Minimalwert: {{ dataSet.temperature._min -272.15 | number : 2 }}</li>
+    <li class="bullet-item">Aktuelle Bewölkung {{ dataSet.clouds._name }}</li>
+    <li class="bullet-item">Wind kommt aus {{dataSet.wind.direction._name }}</li>
+    <li class="bullet-item">Aktueller Luftdruck: {{dataSet.pressure._value }} {{dataSet.pressure._unit }}</li>
+  </ul>
+  
+  </div>
+
+
+  <div ng-view></div>
+
+  <div>Angular seed app: v<span app-version></span></div>
+  
+  <!-- bower components -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/foundation/js/foundation.js"></script>
+  <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
+  <script src="bower_components/x2js/xml2json.js"></script>
+  
+
+  <!-- custom js -->
+  <!-- <script src="bundle.js"></script> -->
+  <script src="app.js"></script>
+  
+  <!-- views -->
+  <script src="view1/view1.js"></script>
+  <script src="taxiBestellen/taxiBestellen.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
